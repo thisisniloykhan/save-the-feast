@@ -1,0 +1,324 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* IE/Edge Legacy */
+body {
+  -ms-overflow-style: none;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #262626;
+  color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+}
+main {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  height: 100dvh;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+}
+
+header h1 {
+  font-family: "Outfit", sans-serif;
+  color: #f9f4da;
+  font-size: clamp(2.2rem, 3vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+header p {
+  color: #b9bdc8;
+  max-width: 42ch;
+  font-size: clamp(1rem, 1vw + 0.4rem, 1.35rem);
+  line-height: 1.4;
+}
+
+.start-btn {
+  font-size: clamp(0.95rem, 0.6vw + 0.8rem, 1.1rem);
+}
+
+.game {
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: 2rem;
+}
+
+.status-section {
+  max-width: 550px;
+  min-height: 60px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  background: #262626;
+  color: #f9f4da;
+}
+
+.farewell-message {
+  min-height: 60px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #5f4d8a;
+  border: 1px dashed #343943;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.status-section.won {
+  background: #3d9467;
+}
+
+.status-section.lost {
+  background: #4c5c96;
+}
+
+.status-section h3 {
+  margin-bottom: 10px;
+}
+
+.foods-section {
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 20px auto;
+}
+
+.food {
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  position: relative;
+}
+
+.food.lost::before {
+  content: "💀";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.word-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.letter {
+  width: clamp(20px, 8vw, 44px);
+  height: clamp(25px, 8vw, 44px);
+  font-size: clamp(0.8rem, 3vw, 1.3rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #323232;
+  border-bottom: 2px solid #d9d9d9;
+  border-radius: 3px;
+  font-weight: 700;
+  /* flex-shrink: 0; */
+}
+
+.letter.wrong {
+  background: #87463d;
+}
+
+.letter.right {
+  background: #3d9467;
+}
+
+.keyboard-section {
+  max-width: 450px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.keyboard-btn {
+  background-color: #e5b24b;
+  border: 1px solid #d7d7d7;
+  height: 35px;
+  width: 35px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 2px;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+.keyboard-btn:hover:not(:disabled) {
+  background-color: #edbe5d;
+  transform: translateY(-2px);
+}
+
+.keyboard-btn:disabled {
+  cursor: default;
+  opacity: 1;
+  color: #1e1e1e;
+  -webkit-text-fill-color: #1e1e1e;
+}
+
+.correct {
+  background: #3d9467;
+}
+
+.incorrect {
+  background: #c86a57;
+}
+
+.new-game,
+.start-btn {
+  background-color: #3b82f6;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 8px;
+  height: 40px;
+  padding: 6px 12px;
+  font-weight: bold;
+  display: block;
+  margin-inline: auto;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.start-btn:hover,
+.new-game:hover {
+  transform: translateY(-2px);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 450px) {
+  .keyboard-btn {
+    height: 30px;
+    width: 30px;
+  }
+  .word-section {
+    margin-block: 1.5rem;
+  }
+}
+
+@media (max-width: 300px) {
+  main {
+    padding-inline: 0.5rem;
+    min-height: 100dvh;
+  }
+
+  .game {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .status-section {
+    margin: 0.5rem auto;
+    min-height: 50px;
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .status-section h3 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .word-section {
+    margin: 0.75rem auto;
+    gap: 2px;
+  }
+
+  .keyboard-section {
+    margin: 0.75rem auto;
+    gap: 4px;
+  }
+
+  .keyboard-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+
+  .new-game {
+    margin-top: 0.75rem;
+  }
+}
