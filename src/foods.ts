@@ -1,4 +1,10 @@
-export const foods = [
+export type Food = {
+  name: string;
+  backgroundColor: string;
+  color: string;
+};
+
+export const foods: Food[] = [
   {
     name: "Biryani",
     backgroundColor: "#E2680F",
