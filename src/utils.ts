@@ -5,7 +5,7 @@ function getRandomIndex<T>(arr: T[]): number {
 }
 
 export function getRandomWord(): string {
-  return words[getRandomIndex<string>(words)];
+  return words[getRandomIndex<string>(words)] || "";
 }
 
 export function getFarewellText(item: string): string {
@@ -24,5 +24,5 @@ export function getFarewellText(item: string): string {
     `Too late! The ${item} is gone.`,
   ];
 
-  return options[getRandomIndex<string>(options)];
+  return options[getRandomIndex<string>(options)] || "";
 }

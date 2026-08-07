@@ -6,7 +6,7 @@ type KeyboardProps = {
   currentWord: string;
   guessedLetters: string[];
   handleLetterGuess: (letter: string) => void;
-  isGameOver: true;
+  isGameOver: boolean;
 };
 
 export default function Keyboard({
